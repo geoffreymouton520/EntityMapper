@@ -1,0 +1,14 @@
+﻿.toolbar {
+    margin-bottom: 10px;   
+}
+.table-loader{
+    border-radius: 5px;
+    background: #8e8b8b;
+}
+.table-loader-container{
+    min-height:300px;
+    min-width:300px;
+    max-width:500px;
+    position: relative;
+    overflow:auto
+}

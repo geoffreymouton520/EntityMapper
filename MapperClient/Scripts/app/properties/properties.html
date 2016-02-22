@@ -1,0 +1,45 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        {{name}}
+        <small>{{actions}}</small>
+    </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="box">
+        <div class="box-header">
+            <h3>{{vm.name}}</h3>
+        </div>
+        <div class="box-body">
+            <a ui-sref="addProperty({id:0})" class="btn btn-primary">Add</a>
+            <table class="table table-bordered table-rouned">
+                <thead>
+                <tr>
+                    <th>Entity</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Active</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="property in vm.properties">
+                    <td>{{property.entity}}</td>
+                    <td>{{property.id}}</td>
+                    <td>{{property.name}}</td>
+                    <td><span class="label label-{{property.label}}">{{property.status}}</span></td>
+                    <td>
+                        <a class="btn btn-primary" ui-sref="viewProperty({id:property.id})">View</a>
+                        <a class="btn btn-primary" ui-sref="editProperty({id:property.id})">Edit</a>
+                        <a class="btn btn-danger" ng-click="vm.deletePrroperty(property)">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+
+
+            </table>
+
+        </div>
+    </div>
+</section><!-- /.content -->

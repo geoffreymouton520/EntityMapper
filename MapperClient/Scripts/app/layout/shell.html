@@ -1,0 +1,55 @@
+﻿   <div ng-controller="ShellCtrl as vm">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+        <!-- Logo -->
+        <a ui-sref="dashboard" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>E</b>M</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Entity</b>Mapper</span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" ng-init="navCollapsed = true"  ng-click="navCollapsed = !navCollapsed" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="header">Menu</li>
+                <!-- Optionally, you can add icons to the links -->
+                <li><a ui-sref="dashboard"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+                <li><a ui-sref="domains"><i class="fa fa-link"></i> <span>Domains</span></a></li>
+                <li><a ui-sref="systems"><i class="fa fa-link"></i> <span>Systems</span></a></li>
+                <li><a ui-sref="mappingOrigins"><i class="fa fa-link"></i> <span>Mapping Origins</span></a></li>
+                <li class="treeview">
+                    <a><i class="fa fa-link"></i> <span>Entity</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a ui-sref="entities">Entities</a></li>
+                        <li><a ui-sref="entityMappings">Entity Mappings</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a><i class="fa fa-link"></i> <span>Property</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a ui-sref="properties">Properties</a></li>
+                        <li><a ui-sref="propertyMappings">Property Mappings</a></li>
+                    </ul>
+                </li>
+            </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+</div>

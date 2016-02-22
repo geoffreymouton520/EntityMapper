@@ -1,0 +1,57 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        {{name}}
+        <small>{{actions}}</small>
+    </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h1 class="box-title">View Property</h1>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <div class="box-body">
+            <a class="btn btn-primary btn-md" ui-sref="properties({propertyId:vm.property.id})">View Entities</a>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-2">Id:</div>
+                        <div class="col-md-4">{{vm.property.id}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Name:</div>
+                        <div class="col-md-4">{{vm.property.name}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Status:</div>
+                        <div class="col-md-4"><span class="label label-{{vm.property.label}}">{{vm.property.status}}</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Created On:</div>
+                        <div class="col-md-4">{{vm.property.createdOn | date:'medium'}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Creatde By:</div>
+                        <div class="col-md-4">{{vm.property.createdBy}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Modified On:</div>
+                        <div class="col-md-4">{{vm.property.modifiedOn| date:'medium'}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Modified By:</div>
+                        <div class="col-md-4">{{vm.property.modifiedBy}}</div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+
+        <div class="box-footer">
+            <a ui-sref="propertys" class="btn btn-default">Back</a>
+            <a ui-sref="editProperty({id:vm.property.id})" class="btn btn-primary">Edit</a>
+        </div>
+    </div>
+</section><!-- /.content -->

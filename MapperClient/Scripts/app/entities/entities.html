@@ -1,0 +1,48 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        {{name}}
+        <small>{{actions}}</small>
+    </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="box">
+        <div class="box-header">
+            <h3>{{vm.name}}</h3>
+        </div>
+        <div class="box-body">
+            <div class="toolbar">
+                <a ui-sref="addEntity({id:0})" class="btn btn-primary">Add</a>
+                <a ng-click="vm.reload()" class="btn btn-primary">Reload</a>
+            </div>
+            <table class="table table-bordered table-rouned">
+                <thead>
+                <tr>
+                    <th>System</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Active</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="entity in vm.entities">
+                    <td>{{entity.system}}</td>
+                    <td>{{entity.id}}</td>
+                    <td>{{entity.name}}</td>
+                    <td><span class="label label-{{entity.label}}">{{entity.status}}</span></td>
+                    <td>
+                        <a class="btn btn-primary" ui-sref="viewEntity({id:entity.id})">View</a>
+                        <a class="btn btn-primary" ui-sref="editEntity({id:entity.id})">Edit</a>
+                        <a class="btn btn-danger" ng-click="vm.deleteEntity(entity)">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+
+
+            </table>
+
+        </div>
+    </div>
+</section><!-- /.content -->

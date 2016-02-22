@@ -1,0 +1,57 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        {{name}}
+        <small>{{actions}}</small>
+    </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h1 class="box-title">View EntityMapping</h1>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <div class="box-body">
+            <a class="btn btn-primary btn-md" ui-sref="systems({entityMappingId:vm.entityMapping.id})">View Systems</a>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-2">Id:</div>
+                        <div class="col-md-4">{{vm.entityMapping.id}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Name:</div>
+                        <div class="col-md-4">{{vm.entityMapping.name}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Status:</div>
+                        <div class="col-md-4"><span class="label label-{{vm.entityMapping.label}}">{{vm.entityMapping.status}}</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Created On:</div>
+                        <div class="col-md-4">{{vm.entityMapping.createdOn | date:'medium'}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Creatde By:</div>
+                        <div class="col-md-4">{{vm.entityMapping.createdBy}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Modified On:</div>
+                        <div class="col-md-4">{{vm.entityMapping.modifiedOn| date:'medium'}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Modified By:</div>
+                        <div class="col-md-4">{{vm.entityMapping.modifiedBy}}</div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+
+        <div class="box-footer">
+            <a ui-sref="entityMappings" class="btn btn-default">Back</a>
+            <a ui-sref="editEntityMapping({id:vm.entityMapping.id})" class="btn btn-primary">Edit</a>
+        </div>
+    </div>
+</section><!-- /.content -->

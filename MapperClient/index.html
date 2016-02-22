@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html ng-app="mapperClient">
+<head>
+    <title>Entity Mapper</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- inject:css -->
+    <!-- endinject -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="Content/theme/AdminLTE.min.css" rel="stylesheet" />
+    <link href="Content/theme/skins/skin-blue.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet" />
+    <!--<link href="bower_components/toastr/toastr.min.css" rel="stylesheet" />-->
+    <link href="bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet" />
+    <link href="bower_components/angular-toastr/dist/angular-toastr.min.css" rel="stylesheet" />
+    <link href="bower_components/angular-busy/angular-busy.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+    <link href="bower_components/tr-ng-grid/trNgGrid.css" rel="stylesheet" />
+
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+        <!-- Logo -->
+        <a ui-sref="dashboard" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>E</b>M</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Entity</b>Mapper</span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="header">Menu</li>
+                <!-- Optionally, you can add icons to the links -->
+                <li><a ui-sref="dashboard"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+                <li><a ui-sref="domains"><i class="fa fa-link"></i> <span>Domains</span></a></li>
+                <li><a ui-sref="systems"><i class="fa fa-link"></i> <span>Systems</span></a></li>
+                <li><a ui-sref="mappingOrigins"><i class="fa fa-link"></i> <span>Mapping Origins</span></a></li>
+                <li class="treeview">
+                    <a><i class="fa fa-link"></i> <span>Entity</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a ui-sref="entities">Entities</a></li>
+                        <li><a ui-sref="entityMappings">Entity Mappings</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a><i class="fa fa-link"></i> <span>Property</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a ui-sref="properties">Properties</a></li>
+                        <li><a ui-sref="propertyMappings">Property Mappings</a></li>
+                    </ul>
+                </li>
+            </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" ui-view>
+
+    </div><!-- /.content-wrapper -->
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2015 <a href="#">DiPAR Systems</a>.</strong> All rights reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Home tab content -->
+            <div class="tab-pane active" id="control-sidebar-home-tab">
+                <h3 class="control-sidebar-heading">Recent Activity</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript::;">
+                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+                                <p>Will be 23 on April 24th</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul><!-- /.control-sidebar-menu -->
+
+                <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript::;">
+                            <h4 class="control-sidebar-subheading">
+                                Custom Template Design
+                                <span class="label label-danger pull-right">70%</span>
+                            </h4>
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul><!-- /.control-sidebar-menu -->
+
+            </div><!-- /.tab-pane -->
+            <!-- Stats tab content -->
+            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
+            <!-- Settings tab content -->
+            <div class="tab-pane" id="control-sidebar-settings-tab">
+                <form method="post">
+                    <h3 class="control-sidebar-heading">General Settings</h3>
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Report panel usage
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+                        <p>
+                            Some information about this general settings option
+                        </p>
+                    </div><!-- /.form-group -->
+                </form>
+            </div><!-- /.tab-pane -->
+        </div>
+    </aside><!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+    immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+    <!-- ./wrapper -->
+    <!-- inject:js -->
+    <!-- endinject -->
+    <!-- jQuery Libs-->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+    <script src="Scripts/lib/theme/app.min.js"></script>
+    <!--<script src="bower_components/toastr/toastr.js"></script>-->
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Libs-->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+
+    <!--Angular Directives-->
+    <script src="bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch.min.js"></script>
+    <script src="bower_components/angular-sweetalert/dist/ngSweetAlert.min.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+    <script src="bower_components/angular-busy/dist/angular-busy.js"></script>
+    <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+    <script src="bower_components/tr-ng-grid/trNgGrid.js"></script>
+
+
+    <!-- Services-->
+    <script src="Scripts/app/common/common-services.js"></script>
+    <script src="Scripts/app/common/domain-resource.js"></script>
+    <script src="Scripts/app/common/system-resource.js"></script>
+    <script src="Scripts/app/common/entity-resource.js"></script>
+    <script src="Scripts/app/common/entity-mapping-resource.js"></script>
+    <script src="Scripts/app/common/property-mapping-resource.js"></script>
+    <script src="Scripts/app/common/mapping-origin-resource.js"></script>
+    <script src="Scripts/app/common/property-resource.js"></script>
+    <script src="Scripts/app/common/user-account.js"></script>
+    <script src="Scripts/app/common/current-user.js"></script>
+
+    <!-- Bootstrapping-->
+    <script src="Scripts/app/app.js"></script>
+    <script src="Scripts/app/app-config.js"></script>
+
+    <!-- Account Controllers-->
+    <script src="Scripts/app/accounts/login-ctrl.js"></script>
+    <script src="Scripts/app/accounts/register-ctrl.js"></script>
+
+    <!-- Home Controller-->
+    <!-- Dashboard Controllers-->
+    <script src="Scripts/app/dashboard/dashboard-controller.js"></script>
+
+    <!-- Domain Controllers-->
+    <script src="Scripts/app/domains/domains-ctrl.js"></script>
+    <script src="Scripts/app/domains/add-domain-ctrl.js"></script>
+    <script src="Scripts/app/domains/edit-domain-ctrl.js"></script>
+    <script src="Scripts/app/domains/view-domain-ctrl.js"></script>
+
+    <!-- System Controllers-->
+    <script src="Scripts/app/systems/systems-ctrl.js"></script>
+    <script src="Scripts/app/systems/add-system-ctrl.js"></script>
+    <script src="Scripts/app/systems/edit-system-ctrl.js"></script>
+    <script src="Scripts/app/systems/view-system-ctrl.js"></script>
+
+    <!-- Entity Controllers-->
+    <script src="Scripts/app/entities/entities-ctrl.js"></script>
+    <script src="Scripts/app/entities/add-entity-ctrl.js"></script>
+    <script src="Scripts/app/entities/edit-entity-ctrl.js"></script>
+    <script src="Scripts/app/entities/view-entity-ctrl.js"></script>
+
+    <!-- Property Controllers-->
+    <script src="Scripts/app/properties/properties-ctrl.js"></script>
+    <script src="Scripts/app/properties/add-property-ctrl.js"></script>
+    <script src="Scripts/app/properties/edit-property-ctrl.js"></script>
+    <script src="Scripts/app/properties/view-property-ctrl.js"></script>
+
+    <!-- EntityMapping Controllers-->
+    <script src="Scripts/app/entity-mappings/entity-mappings-ctrl.js"></script>
+    <script src="Scripts/app/entity-mappings/add-entity-mapping-ctrl.js"></script>
+    <script src="Scripts/app/entity-mappings/edit-entity-mapping-ctrl.js"></script>
+    <script src="Scripts/app/entity-mappings/view-entity-mapping-ctrl.js"></script>
+    <script src="Scripts/app/entity-mappings/confirm-entity-mapping-ctrl.js"></script>
+    <script src="Scripts/app/entity-mappings/automate-entity-mapping-ctrl.js"></script>
+
+    <!-- PropertyMapping Controllers-->
+    <script src="Scripts/app/property-mappings/property-mappings-ctrl.js"></script>
+    <script src="Scripts/app/property-mappings/add-property-mapping-ctrl.js"></script>
+    <script src="Scripts/app/property-mappings/edit-property-mapping-ctrl.js"></script>
+    <script src="Scripts/app/property-mappings/view-property-mapping-ctrl.js"></script>
+
+    <!-- MappingOrigin Controllers-->
+    <script src="Scripts/app/mapping-origins/mapping-origins-ctrl.js"></script>
+    <script src="Scripts/app/mapping-origins/add-mapping-origin-ctrl.js"></script>
+    <script src="Scripts/app/mapping-origins/edit-mapping-origin-ctrl.js"></script>
+    <script src="Scripts/app/mapping-origins/view-mapping-origin-ctrl.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        {{name}}
+        <small>{{actions}}</small>
+    </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <!-- Your Page Content Here -->
+    <div class="col-lg-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h1 class="box-title">Add Entity Mapping: {{vm.entityMapping.name}}</h1>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" name="entityMappingForm" class="form-horizontal" novalidate>
+                <div class="box-body">
+                        <div class="form-group" ng-class="{'has-error':systemForm.inputDomain.$invalid && systemForm.inputDomain.$dirty}">
+                            <label for="inputDomain" class="col-lg-2 control-label">filter Domain</label>
+                            <div class="col-lg-6">
+                                <select name="inputDomain" id="inputDomain" class="form-control" ng-model="vm.entityMapping.domainId" required ng-change="vm.domainChanged()">
+                                    <option value="">Domain (required)</option>
+                                    <option ng-repeat="option in vm.domains" value="{{option.id}}">{{option.name}}</option>
+                                </select>
+                            </div>
+                            <span class="help-block has-error" ng-messages="systemForm.inputDomain.$error" ng-show="systemForm.inputDomain.$dirty">
+                                <span ng-message="required">Domain is required.</span>
+                            </span>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error':entityForm.inputSourceSystem.$invalid && entityForm.inputSourceSystem.$dirty}">
+                            <label for="inputSourceSystem" class="col-lg-2 control-label">Source System</label>
+                            <div class="col-lg-6">
+                                <select name="inputSourceSystem" id="inputSourceSystem" class="form-control" ng-model="vm.entityMapping.sourceSystemId" required ng-change="vm.sourceSystemChanged()">
+                                    <option value="">Source System (required)</option>
+                                    <option ng-repeat="option in vm.systems" value="{{option.id}}">{{option.name}}</option>
+                                </select>
+                            </div>
+                            <span class="help-block has-error" ng-messages="entityForm.inputSourceSystem.$error" ng-show="entityForm.inputSourceSystem.$dirty">
+                                <span ng-message="required">Source System is required.</span>
+                            </span>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':entityForm.inputDestinationSystem.$invalid && entityForm.inputDestinationSystem.$dirty}">
+                            <label for="inputDestinationSystem" class="col-lg-2 control-label">Destination System</label>
+                            <div class="col-lg-6">
+                                <select name="inputDestinationSystem" id="inputDestinationSystem" class="form-control" ng-model="vm.entityMapping.destinationSystemId" required ng-change="vm.destinationSystemChanged()">
+                                    <option value="">Destination System (required)</option>
+                                    <option ng-repeat="option in vm.systems" value="{{option.id}}">{{option.name}}</option>
+                                </select>
+                            </div>
+                            <span class="help-block has-error" ng-messages="entityForm.inputDestinationSystem.$error" ng-show="entityForm.inputDestinationSystem.$dirty">
+                                <span ng-message="required">Destination System is required.</span>
+                            </span>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':entityForm.inputSourceEntity.$invalid && entityForm.inputSourceEntity.$dirty}">
+                            <label for="inputSourceEntity" class="col-lg-2 control-label">Source Entity</label>
+                            <div class="col-lg-6">
+                                <select name="inputSourceEntity" id="inputSourceEntity" class="form-control" ng-model="vm.entityMapping.sourceEntityId" required>
+                                    <option value="">Source Entity (required)</option>
+                                    <option ng-repeat="option in vm.sourceEntities" value="{{option.id}}">{{option.name}}</option>
+                                </select>
+                            </div>
+                            <span class="help-block has-error" ng-messages="entityForm.inputSourceEntity.$error" ng-show="entityForm.inputSourceEntity.$dirty">
+                                <span ng-message="required">Source Entity is required.</span>
+                            </span>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':entityForm.inputDestinationEntity.$invalid && entityForm.inputDestinationEntity.$dirty}">
+                            <label for="inputDestinationEntity" class="col-lg-2 control-label">Destination Entity</label>
+                            <div class="col-lg-6">
+                                <select name="inputDestinationEntity" id="inputDestinationEntity" class="form-control" ng-model="vm.entityMapping.destinationEntityId" required>
+                                    <option value="">Destination Entity (required)</option>
+                                    <option ng-repeat="option in vm.destinationEntities" value="{{option.id}}">{{option.name}}</option>
+                                </select>
+                            </div>
+                            <span class="help-block has-error" ng-messages="entityForm.inputDestinationEntity.$error" ng-show="entityForm.inputDestinationEntity.$dirty">
+                                <span ng-message="required">Destination Entity is required.</span>
+                            </span>
+                        </div>
+                </div><!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="button" class="btn btn-danger" ng-click="vm.cancel()">Cancel</button>
+                    <button type="button" class="btn btn-primary" ng-click="vm.submit(entityMappingForm.$valid)">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section><!-- /.content -->
+
+
+
+
