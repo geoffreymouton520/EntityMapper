@@ -41,18 +41,6 @@
                     }
                 }
             }).
-            state("addDomain", {
-                url: "/domains/add/:id",
-                templateUrl: appRoot + "domains/add-domain.html",
-                controller: "addDomainCtrl as vm",
-                resolve: {
-                    domainResource: "domainResource",
-                    domain: function (domainResource, $stateParams) {
-                        var domainId = $stateParams.id;
-                        return domainResource.get({ id: domainId }).$promise;
-                    }
-                }
-            }).
 
             state("systems", {
                 url: "/systems",

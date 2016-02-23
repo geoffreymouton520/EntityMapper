@@ -1,7 +1,10 @@
 ﻿(function () {
     "use strict";
     var mapperClient = angular.module("mapperClient");
-    var domainsCtrl = function ($scope, domainResource, sweet) {
+    var domainsCtrl = function ($scope,
+        domainResource,
+        sweet,
+        ngDialog) {
         var vm = this;
         vm.name = "Domains";
         vm.actions = "View, Add, Update, & Delete Domains";
@@ -51,6 +54,21 @@
             });
         };
 
+        vm.addDomain = function () {
+            console.log("Add domain popup called");
+            ngDialog.open({
+                template: "Scripts/app/domains/add-domain.html",
+                controller: "addDomainCtrl as vm",
+                resolve: {
+                    domain: function () {
+                        return domainResource.get({ id: 0 }).$promise;
+                    }
+                }
+            }).closePromise.then(function () {
+                loadDomains();
+            });
+        }
+
         vm.reload = function () {
             loadDomains();
         };
@@ -58,5 +76,5 @@
         loadDomains();
     };
 
-    mapperClient.controller("domainsCtrl", ["$scope", "domainResource", "sweet", domainsCtrl]);
+    mapperClient.controller("domainsCtrl", ["$scope", "domainResource", "sweet", "ngDialog", domainsCtrl]);
 })();

@@ -14,7 +14,7 @@
         </div>
         <div class="box-body">
             <div class="toolbar">
-                <a ui-sref="addDomain({id:0})" class="btn btn-primary">Add</a>
+                <a ng-click="vm.addDomain()" class="btn btn-primary">Add</a>
                 <a ng-click="vm.reload()" class="btn btn-primary">Reload</a>
             </div>
             <table tr-ng-grid class="table table-bordered table-rouned" fields="['id','name','active']"items="vm.domains" ng-hide="vm.loading" page-items="5" enable-filtering="false">
