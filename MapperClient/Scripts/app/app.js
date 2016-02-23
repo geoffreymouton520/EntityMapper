@@ -7,7 +7,8 @@
         "hSweetAlert",
         "ngAnimate",
         "toastr",
-        "trNgGrid"
+        "trNgGrid",
+        "ngDialog"
     ]);
 
     mapperClient.constant("APP_HOST", "http://localhost:53652");
