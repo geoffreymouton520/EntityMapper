@@ -3,7 +3,7 @@
     var mapperClient = angular.module("mapperClient");
 
     var stateConfig = function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("/dashboard");
+        $urlRouterProvider.otherwise("/login");
         var appRoot = "Scripts/app/";
         $stateProvider.
             state("dashboard", {

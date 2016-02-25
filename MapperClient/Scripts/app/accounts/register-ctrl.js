@@ -1,7 +1,9 @@
 ﻿(function () {
     "use strict";
     var mapperClient = angular.module("mapperClient");
-    var registerCtrl = function ($state, userAccount) {
+    var registerCtrl = function ($state,
+        userAccount,
+        toastr) {
         var vm = this;
         vm.isLoggedIn = false;
         vm.userData = {
@@ -17,11 +19,11 @@
                 toastr.success("Registered Successfull");
                 vm.login();
             }, function (response) {
-                var message = response.statusText + "\r\n";
+                var message = + "";
                 if (response.data.modelState) {
                     for (var key in response.data.modelState) {
                         if (response.data.modelState.hasOwnProperty(key)) {
-                            message += response.data.modelState[key];
+                            message += response.data.modelState[key][0];
                         }
                     }
                 }
@@ -30,7 +32,7 @@
                     message += response.data.exceptionMessage;
                 }
 
-                toastr.error(message);
+                toastr.error(message, response.statusText);
             });
         };
         vm.login = function() {
@@ -43,7 +45,7 @@
                     vm.isLoggedIn = true;
                     vm.token = data.access_token;
                     toastr.success("Login Successfull");
-                    vm.login();
+                    $state.go("dashboard");
                 },
                 function (response) {
                     vm.password = "";
@@ -67,5 +69,5 @@
     };
 
 
-    mapperClient.controller("registerCtrl", ["$state","userAccount", registerCtrl]);
+    mapperClient.controller("registerCtrl", ["$state","userAccount","toastr", registerCtrl]);
 })();

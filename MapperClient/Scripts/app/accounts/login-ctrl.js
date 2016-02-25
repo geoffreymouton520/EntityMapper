@@ -1,7 +1,10 @@
 ﻿(function () {
     "use strict";
     var mapperClient = angular.module("mapperClient");
-    var loginCtrl = function (userAccount, currentUser,$state) {
+    var loginCtrl = function (userAccount,
+        currentUser,
+        $state,
+        toastr) {
         var vm = this;
         vm.isLoggedIn = false;
         vm.UserData = {
@@ -50,5 +53,5 @@
     };
 
 
-    mapperClient.controller("loginCtrl", ["userAccount", "currentUser", "$state", loginCtrl]);
+    mapperClient.controller("loginCtrl", ["userAccount", "currentUser", "$state","toastr", loginCtrl]);
 })();

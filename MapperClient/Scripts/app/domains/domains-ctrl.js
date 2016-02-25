@@ -58,6 +58,7 @@
             console.log("Add domain popup called");
             ngDialog.open({
                 template: "Scripts/app/domains/add-domain.html",
+                className: "ngdialog-theme-default",
                 controller: "addDomainCtrl as vm",
                 resolve: {
                     domain: function () {
